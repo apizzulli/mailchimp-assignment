@@ -13,7 +13,7 @@ public class MarkdownProcessor {
     private static final char HREF_CLOSE = ')';
 
     public static void processMarkdown(String fileName) {
-        try (BufferedReader markdownFile = new BufferedReader(new FileReader("README.md"));
+        try (BufferedReader markdownFile = new BufferedReader(new FileReader(fileName));
             BufferedWriter generatedHtml = new BufferedWriter(new FileWriter("myhtml.html"))) {
             String line;
 
@@ -85,7 +85,7 @@ public class MarkdownProcessor {
     }
 
     public static void main(String[] args) {
-        processMarkdown("example.md");
+        processMarkdown("longerTest.md");
     }
 }
 
