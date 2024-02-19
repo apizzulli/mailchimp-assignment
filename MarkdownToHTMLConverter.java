@@ -90,6 +90,13 @@ public class MarkdownToHTMLConverter{
                     break;
             }
         }
+        //If an <a> tag has not been closed, the format is invalid
+        if(readingHref){
+            throw new InvalidFileFormatException(FILE_FORMAT_ERROR_MESSAGE + "'[' missing closing ']'");
+        }
+        if(readingLinkTextContent){
+            throw new InvalidFileFormatException(FILE_FORMAT_ERROR_MESSAGE + "'(' missing closing ')'");
+        }
         //Close the end of a header or paragraph with the corresponding tag
         if (readingHeader) {
             htmlOutputLine += (HEADER_CLOSE_TAG + currentHeaderLevel + ">");
@@ -110,7 +117,7 @@ public class MarkdownToHTMLConverter{
     */
     public static void main(String[] args) throws IOException, FileNotFoundException{
         int numRuns = 0;
-        String inputFileName = "", htmlOutputText = "", outputFileName = "", line = " ";
+        String inputFileName = "", outputFileName = "", htmlOutputText = "", line = " ";
         BufferedReader markdownInputFile = null;
         BufferedWriter htmlOutputFile = null;
         //Scanner scanner = new Scanner(System.in);  
