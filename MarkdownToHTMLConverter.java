@@ -4,7 +4,7 @@ import java.io.*;
 * This class is a Markdown to HTML file converter. The user will input a Markdown file and receive   
 * an HTML file as output, converted according to the specifications described in 'README.md.'
 *
-* Run 'java MarkdownProcessor.java' in the command line in the same directory as this file to start.
+* Run 'java MarkdownToHTMLConverter.java' in the command line in the same directory as this file to start.
 *
 * Author: Anthony Pizzulli
 */
